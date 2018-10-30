@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Blockchain</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="{{ url_for('static', filename='sha256_sample.js') }}" type="text/javascript" charset="UTF-8"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='hashing.js') }}"></script>
+</head>
+<body>
+
+<style>
+body {
+       font-family:"Arial";
+       background-color:#333;
+       color:#AAA;
+}
+       
+input {
+       border:none;
+       border-radius:5px;
+       background-color:#F90;
+       /*background-color:#AAA;*/
+       color:#333;
+       width:300px;
+       height:50px;
+       font-size:25px;
+       margin:10px;
+       outline: none;
+       }       
+
+
+.logger{
+       background-color:#666;
+       border:none;
+       border-radius:5px;
+       /*color:#F90;*/
+       color:#AAA;
+       width:1000px;
+       margin:auto;
+       text-align:left;
+       padding:20px;
+       font-family:Arial;
+       overflow:auto; 
+       font-size:25px;
+       margin-top:5px;
+       margin-bottom:5px;
+       outline: none;
+}
+
+.logger:hover {
+        color:#FFF;
+        }
+
+.red {
+      background-color:#800;
+      color:#F93;
+     }
+
+.green {
+      background-color:#080;
+      color:#3F3;
+     }
+
+.sizing {
+        font-size:25px;
+        text-align:center;
+       font-family:Courier;
+        }
+
+.pager {
+    position:fixed;
+    bottom:0px;
+    /*right:calc(50%-100px);*/
+    left: 50%;
+    margin-left:-200px;
+    padding:15px;
+    width:400px;
+    text-align:center;
+  }
+
+
+
+a.nav {
+        position:fixed;
+        bottom:0px;
+        right:0px;
+        bottom:-5px;
+        text-decoration: none;
+        color:#AAA;
+        padding:15px;
+        font-size:40px;
+   }
+
+a.nav:hover {
+        color:#FFF;
+   }
+
+
+a.nav:visited {
+        color:#AAA;
+   }
+
+a.right {
+        right:0px;
+        }
+
+a.left {
+        left:0px;
+        }
+
+
+</style>
+ <p class="pager"> Slide 1 </p>
+ <a class="nav right" href="http://localhost:5000/blockchain"> &gt </a>
+
+<div style="height:50px;">
+
+</div>
+
+<center>
+<textarea style="height:300px;" class="logger" id="cleartext" onkeyup="hashit();"></textarea><br/>
+<input type="text" class="logger sizing" id="hashkey" readonly/><br/>
+<input type="text" class="logger sizing" id="hashkey_saved" onkeyup="verify();" /><br/>
+<input type="button" value="Save key" onclick="test()"/>
+</center>
+
+</body>
+</html>

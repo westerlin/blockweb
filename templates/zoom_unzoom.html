@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+.zoom {
+    padding: 10px;
+    transition: transform .8s;
+    width: 2200px;
+    height: 500px;
+    overflow:Hidden;
+    transform-origin: 0px 150px;
+}
+
+.blockchain {
+    background-color: blue;
+    width: 2200px;
+    height: 100px;
+    margin:10px;
+}
+
+.container {
+	height:130px;
+    overflow:Hidden;
+    overflow-x:scroll;
+}
+
+.red {
+    background-color: red;
+}
+.zoomed {
+    -ms-transform: scale(0.25); /* IE 9 */
+    -webkit-transform: scale(0.25); /* Safari 3-8 */
+    transform: scale(0.25); 
+}
+</style>
+</head>
+<body>
+
+<h1>Zoom on Hover</h1>
+<p>Hover over the div element.</p>
+
+<div class="container" id="mycon">
+<div class="zoom" id="block">
+<div class="blockchain"></div>
+<div class="blockchain red"></div>
+<div class="blockchain"></div>
+<div class="blockchain"></div>
+</div>
+</div>
+<br/>
+<br/>
+<input type="button" value="zoom" onclick="zoom();" />
+<input type="button" value="unzoom" onclick="unzoom();" />
+<button onclick="myFunction()">Scroll contents of div</button><br><br>
+
+<script>
+
+function initPosition(){
+ obj = document.getElementById("mycon");
+ if (obj) obj.scrollTop = 120;
+}
+
+function zoom() {
+ obj = document.getElementById("block");
+ 
+ if (obj) obj.classList.add("zoomed");
+}
+function unzoom() {
+ obj = document.getElementById("block");
+ 
+ if (obj) obj.classList.remove("zoomed");
+}
+
+function myFunction() {
+    var elmnt = document.getElementById("mycon");
+    elmnt.scrollTop += 10;
+}
+
+initPosition();
+</script>
+
+</body>
+</html>
